@@ -1,8 +1,8 @@
 # Gstreamer DAB (Digital Audio Broadcasting) plugin
 
-This gstreamer DAB plugin is intended to store several gstreamer elements
+This gstreamer plugin is intended to store gstreamer elements
 responsible for DAB audio processing.
-Currently this git module contains code for only one gstreamer element.
+Currently it contains code for only one gstreamer element.
 This is gstdabplusparse which is a parser for DAB+ audio stream as defined in
 ETSI TS 102 563 "Digital Audio Broadcasting (DAB); DAB+ audio coding (MPEG HE-AACv2)".
 
@@ -18,6 +18,7 @@ following commands:
 
     sudo apt install libgstreamer1.0-dev
     sudo apt install libgstreamer-plugins-base1.0-dev
+    sudo apt install gstreamer1.0-libav
 
 ## Usage
 
@@ -51,6 +52,11 @@ Alternatively, you will find your plugin binary in `builddir/gst/`
 as `libgstdabplugin.so` or similar (the extension may vary), so you can also set
 the `GST_PLUGIN_PATH` environment variable to the `builddir/gst/` directory
 (best to specify an absolute path though).
+
+You can also change your installation prefix so that it matches your default (from-package) `GStreamer` location.
+This can be done during meson configuration stage:
+
+    meson --prefix=/ builddir
 
 Then, you can check if it has been built correctly with something similar to:
 
